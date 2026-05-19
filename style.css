@@ -132,8 +132,13 @@ body {
     border-radius: 12px;
     overflow: hidden;
     transition: var(--transition);
-    position: relative;
+    position: relative; /* Keep this to anchor absolute positioning */
     cursor: pointer;
+
+    /* NEW: Forces cards into a flex container to push text blocks to the bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 380px; /* Gives the card a stable, beautiful height */
 }
 
 .card:hover {
@@ -145,15 +150,36 @@ body {
 .card-wide { grid-column: span 2; }
 
 .card-image {
-    height: 300px;
+    /* CHANGED: This now covers the entire card background */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Pushes image to the back layer */
     background: #e2e8f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
 }
 
-.card-content { padding: 1.5rem; }
+/* NEW: This ensures the <img> tag inside scales flawlessly without stretching */
+.card-img-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.card-content {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2; /* Pulls text block in front of the image */
+    margin-top: auto; /* Snaps the text block perfectly to the bottom of the card */
+    width: 100%;
+
+    /* CHANGED: Translucent light gray block so text stays perfectly readable over images */
+    background: rgba(248, 250, 252, 0.9);
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(8px); /* Adds a premium modern blurred glass look */
+}
 .card-content h5 { font-size: 1.25rem; margin-bottom: 0.5rem; }
 .card-content p { font-size: 0.9rem; color: var(--text-muted); }
 
@@ -175,11 +201,40 @@ body {
 .exp-list { margin: 2rem 0; }
 .exp-item { padding: 1rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
 
+
+/* --- Tech Stack Tags --- */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+}
+
+.tech-tags .tag {
+    background-color: var(--bg); /* Pure white background to contrast the alt-gray section */
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
+}
+
+/* Subtle interactive lifting effect */
+.tech-tags .tag:hover {
+    border-color: var(--text-muted);
+    transform: translateY(-1px);
+}
+
+/* Adjust your existing logo layout to clear the tags cleanly */
 .icon-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 2rem; /* Reduced slightly from 3rem to keep the grouping tight */
 }
 
 .icon-grid i {
