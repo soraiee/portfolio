@@ -42,7 +42,7 @@ body {
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -1;
     background: radial-gradient(at 0% 0%, rgba(226, 232, 240, 0.5) 0, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(203, 213, 225, 0.3) 0, transparent 50%);
+    radial-gradient(at 100% 100%, rgba(203, 213, 225, 0.3) 0, transparent 50%);
     opacity: 0.6;
 }
 
@@ -109,12 +109,12 @@ body {
 
 /* --- Work Grid --- */
 .section { padding: 8rem 0; }
-.section-label { 
-    text-transform: uppercase; 
-    letter-spacing: 0.2em; 
-    font-size: 0.75rem; 
-    color: var(--text-muted); 
-    margin-bottom: 1rem; 
+.section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
 }
 
 .cat-title { font-size: 2rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
@@ -132,13 +132,10 @@ body {
     border-radius: 12px;
     overflow: hidden;
     transition: var(--transition);
-    position: relative; /* Keep this to anchor absolute positioning */
     cursor: pointer;
-
-    /* NEW: Forces cards into a flex container to push text blocks to the bottom */
     display: flex;
     flex-direction: column;
-    min-height: 380px; /* Gives the card a stable, beautiful height */
+    height: 420px; /* Established uniform structural height */
 }
 
 .card:hover {
@@ -149,36 +146,26 @@ body {
 
 .card-wide { grid-column: span 2; }
 
+/* FIX: Absolute overlay removed to prevent height collapse on production servers */
 .card-image {
-    /* CHANGED: This now covers the entire card background */
-    position: absolute;
-    top: 0;
-    left: 0;
+    flex: 1;
     width: 100%;
-    height: 100%;
-    z-index: 1; /* Pushes image to the back layer */
     background: #e2e8f0;
+    overflow: hidden;
 }
 
-/* NEW: This ensures the <img> tag inside scales flawlessly without stretching */
 .card-img-fit {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
+    object-position: center center;
 }
 
 .card-content {
     padding: 1.5rem;
-    position: relative;
-    z-index: 2; /* Pulls text block in front of the image */
-    margin-top: auto; /* Snaps the text block perfectly to the bottom of the card */
     width: 100%;
-
-    /* CHANGED: Translucent light gray block so text stays perfectly readable over images */
-    background: rgba(248, 250, 252, 0.9);
+    background: var(--bg-alt);
     border-top: 1px solid var(--border);
-    backdrop-filter: blur(8px); /* Adds a premium modern blurred glass look */
 }
 .card-content h5 { font-size: 1.25rem; margin-bottom: 0.5rem; }
 .card-content p { font-size: 0.9rem; color: var(--text-muted); }
@@ -191,11 +178,11 @@ body {
     align-items: center;
 }
 
-.headshot-placeholder {
+.headshot {
     aspect-ratio: 4/5;
-    background: #cbd5e1;
     border-radius: 8px;
-    filter: grayscale(1);
+    overflow: hidden;
+    filter: grayscale(0.2);
 }
 
 .exp-list { margin: 2rem 0; }
@@ -211,7 +198,7 @@ body {
 }
 
 .tech-tags .tag {
-    background-color: var(--bg); /* Pure white background to contrast the alt-gray section */
+    background-color: var(--bg);
     color: var(--text-main);
     border: 1px solid var(--border);
     padding: 0.5rem 1rem;
@@ -223,29 +210,30 @@ body {
     transition: var(--transition);
 }
 
-/* Subtle interactive lifting effect */
 .tech-tags .tag:hover {
     border-color: var(--text-muted);
     transform: translateY(-1px);
 }
 
-/* Adjust your existing logo layout to clear the tags cleanly */
 .icon-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 1.5rem;
-    margin-top: 2rem; /* Reduced slightly from 3rem to keep the grouping tight */
+    margin-top: 2rem;
+    align-items: center;
 }
 
-.icon-grid i {
-    width: 24px;
-    height: 24px;
-    color: var(--text-muted);
+.icon-grid img {
     filter: grayscale(1);
+    opacity: 0.7;
     transition: var(--transition);
 }
 
-.icon-grid i:hover { color: var(--text-main); filter: grayscale(0); transform: scale(1.2); }
+.icon-grid img:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.1);
+}
 
 /* --- Footer --- */
 .footer {
@@ -258,7 +246,9 @@ body {
 .btn-email { font-size: 1.5rem; color: var(--text-main); font-weight: 700; text-decoration: underline; text-underline-offset: 8px; }
 
 @media (max-width: 768px) {
-    .about-grid, .card-wide { grid-template-columns: 1fr; grid-column: span 1; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .card-wide { grid-column: span 1; }
     .display-name { font-size: 3.5rem; }
-    .icon-grid { grid-template-columns: repeat(4, 1fr); }
+    .icon-grid { grid-template-columns: repeat(3, 1fr); }
+    .card { height: 380px; }
 }
