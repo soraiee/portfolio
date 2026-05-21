@@ -1,4 +1,4 @@
-name: Deploy Next.js static export to GitHub Pages
+name: Deploy static site to GitHub Pages
 
 on:
   push:
@@ -26,36 +26,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.24.0
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build static export
-        run: pnpm build
-        env:
-          GITHUB_PAGES: 'true'
-          NEXT_PUBLIC_BASE_PATH: /portfolio
+      - name: Prepare static site
+        run: |
+          mkdir _site
+          cp index.html style.css .nojekyll _site/
+          mkdir -p _site/assets
+          cp assets/Sammi_Resume.pdf _site/assets/
+          cp -R images _site/
+          find _site -name .DS_Store -delete
 
       - name: Remove macOS metadata
-        run: find out -name .DS_Store -delete
+        run: find _site -name .DS_Store -delete
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload static export
+      - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
