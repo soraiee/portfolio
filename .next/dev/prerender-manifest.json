@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/work/storyweaver":{},"/work/pollnow":{},"/work/orb-e":{},"/work/asleep-in-the-deep":{},"/work/maibel":{},"/work/digital-arts":{},"/work/climate-changer-poster":{},"/work/3d-sculpture":{},"/work/carnival-namecard":{}},"dynamicRoutes":{"/work/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/work/[slug]","routeRegex":"^\\/work\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"db83af9ad0a103bcbf243ba0ee4395f2","previewModeSigningKey":"7a3ee8befae16daed6001f25637f0f3606cf0a6c877dc02e83044ae79f5d7a75","previewModeEncryptionKey":"60659afd14da409bc681b523b6e5585c72df9abc767f5b658ea2c4059e8cc73a"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "64c3a50d22375428ae2ccc68d62ae333",
+    "previewModeSigningKey": "f9d7d83cd175b2625bbf39dc445c51bd3fa9d747ee5acea57da63444dfcf2fe5",
+    "previewModeEncryptionKey": "cb9bbe4345a7d18bf5b4453fdb7faf6dee75a29a82c53864986b0636394762f5"
+  }
+}

@@ -1,16 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
-  // If deploying to https://<username>.github.io/<repo-name>/
-  // uncomment and set basePath + assetPrefix to your repo name:
-  // basePath: '/your-repo-name',
-  // assetPrefix: '/your-repo-name/',
+    output: 'export',
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    images: {
+        unoptimized: true,
+    },
+    // Set these exactly to your repository name 'portfolio'
+    basePath: '/portfolio',
+    assetPrefix: '/portfolio/',
 }
 
 export default nextConfig
