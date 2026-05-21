@@ -4,10 +4,9 @@
 # Dependencies
 node_modules/
 
-# Next.js build output and caches from the original v0 export
+# Next.js output
 .next/
 out/
-_site/
 
 # Logs
 npm-debug.log*
