@@ -28,13 +28,13 @@ export const projectsData: Record<string, ProjectDetail> = {
     category: "uiux",
     year: "2024",
     tags: ["Android", "Java", "XML Layouts", "Interactive Fiction"],
-    heroImage: "/images/project-android.jpg",
+    heroImage: "/images/project-StoryWeaver.png",
     description:
       "StoryWeaver is a dynamic, in-app interactive fiction feature that generates quick, replayable mystery stories. Built with Android Studio, the app leverages custom XML layouts and Java to create an immersive storytelling experience where users make choices that affect the narrative outcome.",
     galleryImages: [
-      "/images/project-android.jpg",
-      "/images/project-android.jpg",
-      "/images/project-android.jpg",
+      "/images/project-StoryWeaver.png",
+      "/images/SWHome.jpg",
+      "/images/SWGamePage.jpg",
     ],
     features: [
       {
@@ -74,13 +74,13 @@ export const projectsData: Record<string, ProjectDetail> = {
     category: "uiux",
     year: "2026–Present",
     tags: ["Figma", "Android", "Kotlin", "Real-time Polling"],
-    heroImage: "/images/project-luvion.jpg",
+    heroImage: "/images/project-PollNow.png",
     description:
       "PollNow is a real-time event polling application designed for conferences, meetups, and classroom settings. The app enables organizers to create instant polls and gather live feedback from attendees, fostering engagement and data-driven decision making.",
     galleryImages: [
-      "/images/project-luvion.jpg",
-      "/images/project-luvion.jpg",
-      "/images/project-luvion.jpg",
+      "/images/project-PollNow.png",
+      "/images/project-PollNow.png",
+      "/images/project-PollNow.png",
     ],
     features: [
       {
@@ -120,13 +120,13 @@ export const projectsData: Record<string, ProjectDetail> = {
     category: "uiux",
     year: "2025–2026",
     tags: ["System Design", "Dashboard UI", "Interaction Design"],
-    heroImage: "/images/project-orbe.jpg",
+    heroImage: "/images/project-Orb-E.jpg",
     description:
       "ORB-E is a comprehensive systems design project for an orbital robotic entity. The project encompasses sensor data dashboards, control flow diagrams, and interaction models for both autonomous and manual operation modes.",
     galleryImages: [
-      "/images/project-orbe.jpg",
-      "/images/project-orbe.jpg",
-      "/images/project-orbe.jpg",
+      "/images/project-Orb-E.jpg",
+      "/images/project-Orb-E.jpg",
+      "/images/project-Orb-E.jpg",
     ],
     features: [
       {
@@ -166,13 +166,13 @@ export const projectsData: Record<string, ProjectDetail> = {
     category: "creative",
     year: "2023",
     tags: ["Blender", "3D Art", "Game Design"],
-    heroImage: "/images/project-asleep.jpg",
+    heroImage: "/images/ASITD_BeautyShot.jpg",
     description:
       "Asleep in the Deep is an atmospheric underwater exploration game featuring hand-crafted 3D environments and bioluminescent creatures. The project showcases advanced Blender techniques including volumetric lighting, procedural textures, and particle systems.",
     galleryImages: [
-      "/images/project-asleep.jpg",
-      "/images/project-asleep.jpg",
-      "/images/project-asleep.jpg",
+      "/images/ASITD/project-ASITDTrailer.mp4",
+      "/images/ASITD_BeautyShot.jpg",
+      "/images/ASITD/Lvl1_01.jpg",
     ],
     features: [
       {
@@ -250,6 +250,52 @@ export const projectsData: Record<string, ProjectDetail> = {
         "Developed a relationship system where companions have opinions, preferences, and growth arcs. Missions were designed to require genuine cooperation rather than simple command-following.",
       outcome:
         "User testing showed players formed genuine emotional connections, with many reporting feeling protective of their companion.",
+    },
+  },
+  showroom: {
+    id: "showroom",
+    title: "Automotive VR Showroom",
+    subtitle: "3D Asset Production",
+    category: "creative",
+    year: "2023",
+    tags: ["3D", "VR", "Blender", "Substance Painter", "Unity"],
+    heroImage: "/images/project-Showroom.mp4",
+    description:
+      "Automotive VR Showroom is a 3D production project focused on building polished vehicle and environment assets for an immersive showroom experience. The work involved asset preparation, material authoring, and real-time presentation considerations.",
+    galleryImages: [
+      "/images/project-Showroom.mp4",
+      "/images/project-3d-sculpture.jpg",
+      "/images/project-digital-arts.jpg",
+    ],
+    features: [
+      {
+        title: "Real-time Assets",
+        description:
+          "Optimized 3D models and materials for smooth interactive viewing in a VR context.",
+      },
+      {
+        title: "Material Authoring",
+        description:
+          "Surface treatments created with attention to automotive finishes, reflections, and showroom lighting.",
+      },
+      {
+        title: "Production Workflow",
+        description:
+          "Asset handoff and scene preparation structured for collaboration across design and implementation.",
+      },
+      {
+        title: "Immersive Presentation",
+        description:
+          "Designed visual details around close inspection, scale, and user movement in a virtual showroom.",
+      },
+    ],
+    caseStudy: {
+      challenge:
+        "Showroom assets need to look polished up close while staying performant enough for real-time viewing.",
+      solution:
+        "Balanced model detail, texture quality, and material setup so the experience could remain visually rich without unnecessary weight.",
+      outcome:
+        "Produced presentation-ready 3D assets for an automotive showroom workflow during internship work.",
     },
   },
   "digital-arts": {
@@ -397,13 +443,13 @@ export const projectsData: Record<string, ProjectDetail> = {
     category: "creative",
     year: "2024",
     tags: ["Graphic Design", "Illustrator", "Event Design"],
-    heroImage: "/images/project-carnival-namecard.jpg",
+    heroImage: "/images/project-carnival-namecard.png",
     description:
       "A vibrant name card and event branding system designed for the annual Back To School Carnival. The project encompasses name badges, signage, and promotional materials with a cohesive festive aesthetic.",
     galleryImages: [
-      "/images/project-carnival-namecard.jpg",
-      "/images/project-carnival-namecard.jpg",
-      "/images/project-carnival-namecard.jpg",
+      "/images/project-carnival-namecard.png",
+      "/images/project-carnival-namecard.png",
+      "/images/project-carnival-namecard.png",
     ],
     features: [
       {

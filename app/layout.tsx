@@ -1,18 +1,8 @@
 import type { Metadata } from 'next'
-import { DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
-  display: "swap",
-});
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
+const iconPath = `${basePath}/placeholder.jpg`
 
 export const metadata: Metadata = {
   title: 'Sammi Tan | Portfolio',
@@ -20,19 +10,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/placeholder.jpg',
+        url: iconPath,
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/placeholder.jpg',
+        url: iconPath,
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/placeholder.jpg',
+        url: iconPath,
         type: 'image/svg+xml',
       },
     ],
-    apple: '/placeholder.jpg',
+    apple: iconPath,
   },
 }
 
@@ -43,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${dmMono.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         {children}
       </body>
     </html>

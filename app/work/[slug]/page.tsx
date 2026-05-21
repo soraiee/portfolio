@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { getProjectById, getAllProjectIds, type ProjectDetail } from "@/lib/projects-data";
 import { ProjectNav } from "@/components/project-nav";
 import { ImageSlider } from "@/components/image-slider";
+import { ProjectMedia } from "@/components/project-media";
 import type { Metadata } from "next";
 
 interface PageProps {
@@ -14,6 +14,8 @@ export async function generateStaticParams() {
   const ids = getAllProjectIds();
   return ids.map((slug) => ({ slug }));
 }
+
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -83,10 +85,9 @@ export default async function ProjectPage({ params }: PageProps) {
       {/* Section 2: Beauty Shot Image */}
       <section className="pb-16 md:pb-24 max-w-6xl mx-auto px-6 md:px-10">
         <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-secondary border border-border">
-          <Image
+          <ProjectMedia
             src={project.heroImage}
             alt={project.title}
-            fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 80vw"
             priority

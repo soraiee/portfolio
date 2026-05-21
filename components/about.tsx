@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ProjectMedia } from "@/components/project-media";
 
 // SVG icon components — monochrome, consistent 28×28
 
@@ -150,10 +150,9 @@ export function About() {
           {/* Left — headshot */}
           <div className="flex flex-col gap-6">
             <div className="relative w-full max-w-sm aspect-[3/4] rounded-2xl overflow-hidden border border-border bg-card self-start">
-              <Image
+              <ProjectMedia
                 src="/images/Portrait.jpg"
                 alt="Sammi Tan"
-                fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 40vw"
               />

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { ProjectMedia } from "@/components/project-media";
 
 interface ImageSliderProps {
   images: string[];
@@ -34,10 +34,9 @@ export function ImageSlider({ images, alt }: ImageSliderProps) {
                 : "opacity-0 scale-105"
             )}
           >
-            <Image
+            <ProjectMedia
               src={image}
               alt={`${alt} - Image ${index + 1}`}
-              fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 80vw"
               priority={index === 0}

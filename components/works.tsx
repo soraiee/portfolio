@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { ProjectMedia } from "@/components/project-media";
 
 const TABS = ["Product & UI/UX", "Creative & 3D"] as const;
 type Tab = (typeof TABS)[number];
@@ -137,10 +137,9 @@ function ProjectCard({ project }: { project: Project }) {
             project.span === "wide" ? "h-64 md:h-80" : "h-52"
           )}
         >
-          <Image
+          <ProjectMedia
             src={project.img}
             alt={project.title}
-            fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 50vw"
           />

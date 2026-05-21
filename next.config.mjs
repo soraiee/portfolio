@@ -1,3 +1,8 @@
+const isGithubPages = process.env.GITHUB_PAGES === 'true'
+const basePath = isGithubPages ? '/portfolio' : ''
+
+process.env.NEXT_PUBLIC_BASE_PATH = basePath
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
@@ -7,10 +12,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // If deploying to https://<username>.github.io/<repo-name>/
-  // uncomment and set basePath + assetPrefix to your repo name:
-  // basePath: '/your-repo-name',
-  // assetPrefix: '/your-repo-name/',
+  basePath,
+  assetPrefix: basePath ? `${basePath}/` : undefined,
 }
 
 export default nextConfig
